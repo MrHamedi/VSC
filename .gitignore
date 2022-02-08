@@ -1,0 +1,17 @@
+#Byte compiled
+__pycache__/
+
+#virtualenvs
+/envs/ 
+!/env/.gitkeep
+
+#medias and statics
+/media/
+!/media/.gitkeep
+
+/static_root/
+!/static_root/.gitkeep
+
+#secrets
+.bash_profile
+
