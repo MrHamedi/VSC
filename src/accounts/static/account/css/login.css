@@ -1,0 +1,32 @@
+/*small devices*/
+@media (min-width: 250px){
+    #login_div{
+        width:240px ;
+        margin:auto;
+    }   
+}
+
+/*medium devices*/
+@media (min-width: 600px) {  
+    #login_div{
+        width:35%;
+        margin:auto;
+    }
+}
+
+
+
+
+/*large devices*/
+@media (min-width: 992px) { 
+    #login_div{
+        width:30%;
+        margin:auto;
+    }
+}
+
+
+#login_div{
+    border:solid #cc7a00 2px ;
+}
+

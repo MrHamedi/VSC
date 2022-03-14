@@ -1,0 +1,19 @@
+/*small devices*/
+@media (min-width: 250px){
+    #logout_div{
+        width:auto;
+        margin:5%;
+    }   
+}
+
+@media (min-width: 500px){
+    #logout_div{
+        width:50%;
+        margin:auto;
+        margin-top:2%;
+    }   
+}
+
+#logout_div{
+    border:solid #cc7a00 2px ;
+}
