@@ -1,0 +1,18 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'account/css/logout.css' %}" >
+    <link rel="stylesheet" href="{% static 'account/css/shared.css' %}">
+{% endblock head %}
+{% block page_title %}
+    خروج
+{% endblock page_title %}
+{% block content %}
+    <div class="container  text-center pt-3 " id="logout_div">
+        <p class="text-center">آیا از خروج خود اطمینان دارید؟</p>
+        <form  method="post" action="{% url 'account_logout' %}" class="text-center" >
+            {% csrf_token %}
+            <button  type="submit" class=" btn btn-light" id="custom_btn">خروج</button>
+        </form>
+    </div>
+{% endblock content %}
