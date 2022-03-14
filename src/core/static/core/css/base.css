@@ -1,0 +1,18 @@
+.navbar-custom {
+    background-color: #cc7a00;
+}
+
+.navbar a {
+    color: 
+    #ffffff;
+
+}
+
+.navbar a:hover{
+    color:#b3b3b3
+
+}
+
+.navbar .navbar-toggler-icon{
+    color:red
+}
