@@ -41,12 +41,16 @@ INSTALLED_APPS = [
     #custome 
     'accounts.apps.AccountsConfig',
     'core.apps.CoreConfig',
-
+    'video.apps.VideoConfig',
+    'comment.apps.CommentConfig',
+    'like.apps.LikeConfig',
+    'follow.apps.FollowConfig',
 
     #3rd party
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'allauth.socialaccount.providers.openid',
 ]
 
 MIDDLEWARE = [
@@ -106,13 +110,10 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
-LANGUAGE_CODE = 'fa'
 
 TIME_ZONE = 'UTC'
 
-USE_I18N = True
 
-USE_L10N = True
 
 USE_TZ = True
 
@@ -123,16 +124,25 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
 
-SITE_ID=1
+
 
 STATIC_ROOT=os.path.join(BASE_DIR,'static_root')
+
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+MEDIA_URL="/media/"
 
 LOCALE_PATHS = [os.path.join(BASE_DIR,'locale')]
 
+
+#Translations settings
+USE_I18N = True
+LANGUAGE_CODE = 'fa'
+USE_L10N = True
 LANGUAGES = (
     ('fa',_('Farsi')),
 )
 
-
-
+#allauth settings
+SITE_ID=1
+ACCOUNT_EMAIL_REQUIRED=True
+ACCOUNT_EMAIL_VERIFICATION='mandatory'
