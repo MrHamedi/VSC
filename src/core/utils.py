@@ -14,4 +14,4 @@ def get_secret(data):
 
 
 def upload_to_username(instance,filename):
-    return(f"{instance.profile.user.username}/%Y/")
+    return(f"{instance.sharer.user.username}/{instance.subject}/")
