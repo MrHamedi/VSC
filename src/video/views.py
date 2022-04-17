@@ -1,3 +1,9 @@
 from django.shortcuts import render
+from django.views.generic import DetailView 
+from .models import Video 
 
-# Create your views here.
+
+class VideoDetail(DetailView):
+    model=Video 
+    template_name="video/video_detail.html"
+
