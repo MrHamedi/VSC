@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-12 15:05+0330\n"
+"POT-Creation-Date: 2022-03-16 18:12+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -391,7 +391,7 @@ msgstr ""
 
 #: allauth/templates/account/email/base_message.txt:1
 #, python-format
-msgid "Hello from %(site_name)s!"
+msgid "سلام از طرف %(site_name)s!"
 msgstr ""
 
 #: allauth/templates/account/email/base_message.txt:5
@@ -404,10 +404,11 @@ msgstr ""
 #: allauth/templates/account/email/email_confirmation_message.txt:5
 #, python-format
 msgid ""
-"You're receiving this e-mail because user %(user_display)s has given your e-"
-"mail address to register an account on %(site_domain)s.\n"
 "\n"
-"To confirm this is correct, go to %(activate_url)s"
+"شما این ایمیل را دریافت کردید چراکه%(user_display)s آدرس ایمیل شمارا برای "
+"ثبت اکانت کاربری در %(site_domain)sوارد کرده است.\n"
+"\n"
+"برای تایید این درخواست لطفا به آدرس %(activate_url)s  بروید."
 msgstr ""
 
 #: allauth/templates/account/email/email_confirmation_subject.txt:3
@@ -433,16 +434,14 @@ msgid "Password Reset E-mail"
 msgstr ""
 
 #: allauth/templates/account/email/unknown_account_message.txt:4
-#, python-format
 msgid ""
-"You are receiving this e-mail because you or someone else has requested a\n"
-"password for your user account. However, we do not have any record of a "
-"user\n"
-"with email %(email)s in our database.\n"
 "\n"
-"This mail can be safely ignored if you did not request a password reset.\n"
-"\n"
-"If it was you, you can sign up for an account using the link below."
+"شما این ایمیل را دریافت می کنید چراکه ما از طرف  شما یا شخص دیگری درخواست "
+"بازیابی رمز عبور برای حساب شما دریافت کرده ایم .اما متاسفانه ما هیچ کاربری "
+"با ایمیل شما در پایگاه داده خود نداریم.\n"
+"اگر این درخواست از طرف شما نبوده است می توانید آنرا نادیده بگیرید.\n"
+"اگر این درخواست از طرف شما بوده است می توانید از طریق آدرس زیر ثبت نام "
+"کنید.\n"
 msgstr ""
 
 #: allauth/templates/account/email_confirm.html:6

@@ -1,10 +1,9 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
-msgid
+msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-02-03 13:53-0600\n"
 "PO-Revision-Date: 2020-06-14 17:00-0000\n"
@@ -449,7 +448,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Confirm E-mail Address"
 msgid "Please Confirm Your E-mail Address"
-msgstr "تایید نشانی ایمیل"
+msgstr "لطفا آدرس ایمیل خود را تایید کنید"
 
 #: templates/account/email/password_reset_key_message.txt:4
 #, fuzzy
@@ -474,7 +473,7 @@ msgstr "در صورت فراموشی، نام‌کاربری‌ات %(username)s
 #: templates/account/email/password_reset_key_subject.txt:3
 #: templates/account/email/unknown_account_subject.txt:3
 msgid "Password Reset E-mail"
-msgstr "ایمیل‌ی بازنشانی گذرواژه"
+msgstr "ایمیل‌ بازنشانی گذرواژه"
 
 #: templates/account/email/unknown_account_message.txt:4
 #, fuzzy, python-format
@@ -577,7 +576,7 @@ msgstr "ایمیل‌ی تاییدیه به %(email)s فرستاده شد."
 #: templates/account/messages/email_confirmed.txt:2
 #, python-format
 msgid "You have confirmed %(email)s."
-msgstr "نشانی ایمیل‌ %(email)s را تایید کرده‌ای."
+msgstr "نشانی ایمیل‌ %(email)s را تایید کرده‌اید."
 
 #: templates/account/messages/email_deleted.txt:2
 #, python-format
@@ -591,7 +590,7 @@ msgstr "با %(name)s باموفقیت وارد شدی."
 
 #: templates/account/messages/logged_out.txt:2
 msgid "You have signed out."
-msgstr "خارج شده‌ای."
+msgstr "خارج شده‌اید."
 
 #: templates/account/messages/password_changed.txt:2
 msgid "Password successfully changed."
@@ -599,7 +598,7 @@ msgstr "گذرواژه باموفقیت تغییر کرد."
 
 #: templates/account/messages/password_set.txt:2
 msgid "Password successfully set."
-msgstr "گذرواژه باموفقیت نهاده شد."
+msgstr "گذرواژه باموفقیت ثبت شد."
 
 #: templates/account/messages/primary_email_set.txt:2
 msgid "Primary e-mail address set."
