@@ -3,6 +3,7 @@
 {% load i18n %}
 
 {% block content %}{% autoescape off %}{% user_display user as user_display %}{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}
-شما این ایمیل را دریافت کردید چراکه{{ user_display }} آدرس ایمیل شمارا برای ثبت اکانت کاربری در {{ site_domain }}وارد کرده است.
+آدرس ایمیل شما برای ثبت نام در سایت مرکز فیلم بکار رفته لطفا برای تایید این درخواست به لینک زیر بروید.
 
-برای تایید این درخواست لطفا به آدرس {{ activate_url }}  بروید.{% endblocktrans %}{% endautoescape %}{% endblock %}
+{{ activate_url }}
+{% endblocktrans %}{% endautoescape %}{% endblock %}
