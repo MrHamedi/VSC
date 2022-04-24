@@ -2,8 +2,10 @@ from django.db import models
 from accounts.models.profile import Profile
 from core.models import CommonPostableFields
 from core.utils import upload_to_username
-from video.utils.video_splitter import video_splitter
+from ..utils.set_image import set_image
+from ..utils import is_format_valid
 from django.urls import reverse
+import os
 
 
 class Video(CommonPostableFields):
@@ -27,7 +29,12 @@ class Video(CommonPostableFields):
             'video:video_detail',args=[self.sharer.user.username,self.subject,self.id]
         ))
 
+    @property
+    def extension_splitter(self):
+        return os.path.splitext(self.video.path)[1]
+
     def save(self,*args,**kwargs):
+        print(self.video)
+        is_format_valid(self.video.path)
         super(Video,self).save(*args,**kwargs)
-        if not self.image:
-            video_splitter(self)
+        set_image(self)
