@@ -6,6 +6,7 @@ from ..utils.set_image import set_image
 from ..utils import is_format_valid
 from django.urls import reverse
 import os
+from taggit.managers import TaggableManager
 
 
 class Video(CommonPostableFields):
@@ -15,6 +16,7 @@ class Video(CommonPostableFields):
     subject=models.CharField(max_length=150)
     description=models.TextField(null=True,blank=True)
     image=models.ImageField(upload_to=upload_to_username ,null=True ,blank=True)
+    tags=TaggableManager()
 
     class Meta:
         verbose_name="فیلم"
