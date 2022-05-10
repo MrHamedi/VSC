@@ -8,6 +8,7 @@ DEBUG = True
 SECRET_KEY = get_secret("SECRET_KEY")
 
 
+
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
@@ -35,3 +36,16 @@ else:
     EMAIL_HOST_PASSWORD = get_secret("EMAIL_PASSWORD")
     EMAIL_PORT = 587
     EMAIL_USE_TLS = True
+
+
+INSTALLED_APPS+=[
+    'debug_toolbar'
+]
+
+
+
+def show_toolbar(request):
+    return True
+DEBUG_TOOLBAR_CONFIG = {
+    "SHOW_TOOLBAR_CALLBACK" : show_toolbar,
+}
