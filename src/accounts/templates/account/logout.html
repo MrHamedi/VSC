@@ -8,7 +8,7 @@
     خروج
 {% endblock page_title %}
 {% block content %}
-    <div class="container  text-center pt-3 " id="logout_div">
+    <div class="container  text-center pt-3 h-100 " id="logout_div">
         <p class="text-center">آیا از خروج خود اطمینان دارید؟</p>
         <form  method="post" action="{% url 'account_logout' %}" class="text-center" >
             {% csrf_token %}

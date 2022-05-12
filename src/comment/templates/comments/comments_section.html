@@ -1,0 +1,16 @@
+<div>
+  <em class="mt-5">دیدگاه ها</em>
+  <div>
+    {% if comments %}
+    {% for comment in comments%}
+    <section class="mt-2">
+      <img src="{{comment.sharer.get_image}}" class="rounded" width="40">
+      <p>{{comment.sharer}}</p>
+      <p class="border-bottom border-warning mt-2 border-2 ">{{comment}}</p>
+    </section>
+    {% endfor %}
+    {% else %}
+    <p>نظری درباره این ویدیو داده نشده.نفر اولی باش که دیدگاهش رو به اشتراک می ذاره!</p>
+    {% endif %}
+  </div>
+</div>

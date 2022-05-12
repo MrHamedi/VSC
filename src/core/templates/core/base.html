@@ -17,7 +17,7 @@
         {% block head %}
         {% endblock head %}
     </head>
-    <body>
+    <body class="d-flex flex-column min-vh-100">
         <nav class="navbar navbar-expand-lg navbar-custom navbar-white ">
             <a class="navbar-brand" href="{% url 'core:homepage' %}">VSC</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,7 +27,7 @@
               <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 {% if request.user.is_authenticated %}
                 <li class="nav-item">
-                    <a class="nav-link" href="#">پروفایل</a>
+                    <a class="nav-link" href="{% url 'accounts:profile_page' %}">پروفایل</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'account_logout' %}">خروج</a>
@@ -46,6 +46,6 @@
 
           {% block content %}
           {% endblock content %}
-
+        {% include 'core/footer.html' %}
     </body>
 </html>
