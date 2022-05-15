@@ -1,0 +1,54 @@
+{% extends "core/base.html" %}
+{% block page_title %}
+  {{video.subject}}
+{% endblock page_title %}
+{% block head %}
+<link href="https://vjs.zencdn.net/7.18.1/video-js.css" rel="stylesheet" />
+<script src="https://vjs.zencdn.net/7.18.1/video.min.js"></script>
+{% endblock head %}
+{% block content %}
+<div class="text-right container">
+  <div>
+    <p class="text-center h3">{{video.subject}}</p>
+  </div>
+  <div class="row">
+    <section class="col-md-8 col-12 ">
+      <div class="embed-responsive embed-responsive-16by9 m-auto mr-auto ">
+        <video id="my-video" class="video-js  embed-responsive-item " controls preload="auto"
+          poster="{{video.image.url}}" data-setup="{}">
+          <source src="{{video.video.url}}" type="video/mp4" />
+          <source src="{{video.video.url}}" type="video/webm" />
+          <p class="vjs-no-js">
+            To view this video please enable JavaScript, and consider upgrading to a
+            web browser that
+            <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+          </p>
+        </video>
+      </div>
+    </section>
+    {%include "video/suggestion.html"%}
+  </div>
+  <div class="row">
+    <div class="col-8">
+      <section class="m-2">
+        <img src="{{video.sharer.get_image}}" class="rounded-circle" width="60"> <em>{{video.sharer}}</em>
+      </section>
+      <section class="col-8">
+        {{video.description}}
+      </section>
+      <section class="m-2">
+        {% for tag in video.tags.all %}
+        <a href="#"><em class="text-light bg-dark rounded-circle p-2">{{tag}}</em></a>
+        {% endfor %}
+      </section>
+    </div>
+    <div class="col-3 border float-center border-warning">
+      مشابه
+    </div>
+  </div>
+  <div>
+    {% include 'comments/comments_form.html' %}
+    {% include 'comments/comments_section.html' %}
+  </div>
+</div>
+{% endblock content %}

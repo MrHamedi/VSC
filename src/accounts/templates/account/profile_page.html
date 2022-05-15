@@ -1,0 +1,34 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% block content %}
+<!--
+    default_client_pic  is from icons8.com
+-->
+<div class="p-2 container text-right mb-5">
+    <div class="d-flex flex-row  ">
+        <img src="{{user.profile.get_image}}" width="100" class=" border border-warning rounded-circle ">
+        <section class="text-right p-4">
+            <span class="font-italic font-weight-bold d-block">{{user.username}}</span>
+            <span class="font-weight-bold d-block">{{user.email}}</span>
+        </section>
+    </div>
+    <div class="p-3" >
+        {% if videos %}
+            <p>شما  {{videos.count}} فیلم به اشتراک گذاشته اید.</p>
+        {% else %}
+            <p>شما هنوز هیچ ویدیویی به اشتراک نگذاشته اید.</p>
+        {% endif %}
+        <div class=" d-flex mt-2 row border-top border-warning p-2">
+            {% for video in videos %}
+                <div class="col-xs-8 col-sm-6 col-md-4 col-lg-3 ">
+                <a href="{{video.get_absolute_url}}" class="text-dark text-decoration-none" >
+                    <img src="/media/{{video.image}}" class="img-fluid">
+                    <p class="text-center">{{video.subject}}</p>
+                </a>
+                </div>
+            {% endfor %}
+            </div>
+    </div>
+</div>
+
+{% endblock content %}

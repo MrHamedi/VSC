@@ -1,0 +1,32 @@
+/*small devices*/
+@media (min-width: 250px){
+    #signup_div{
+        width:240px ;
+        margin:auto;
+    }   
+}
+
+/*medium devices*/
+@media (min-width: 600px) {  
+    #signup_div{
+        width:35%;
+        margin:auto;
+    }
+}
+
+
+
+
+/*large devices*/
+@media (min-width: 992px) { 
+    #signup_div{
+        width:30%;
+        margin:auto;
+    }
+}
+
+
+#signup_div{
+    border:solid #cc7a00 2px ;
+}
+

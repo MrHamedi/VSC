@@ -1,0 +1,39 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load account %}
+{% load i18n %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'account/css/shared.css' %}">
+{% endblock head %}
+{% block page_title %}
+    تایید ایمیل
+{% endblock page_title %}
+{% block content %}
+<div class="container">
+<h1 class="text-center pt-2">تایید آدرس ایمیل</h1>
+
+{% if confirmation %}
+
+{% user_display confirmation.email_address.user as user_display %}
+
+<p class="text-center">
+    {% blocktrans with confirmation.email_address.email as email %} 
+                لطفا تایید کنید که آدرس ایمیل <a href="mailto:{{ email }}">{{ email }}</a> متعلق به {{ user_display }}است..
+    {% endblocktrans %}
+</p>
+<p class="text-center">  اگر این درخواست فعال سازی توسط شما ارسال نشده لطفا آن را نادیده بگیرید</p>
+
+<form method="post" action="{% url 'account_confirm_email' confirmation.key %}">
+{% csrf_token %}
+    <button class="btn  d-flex mx-auto mb-2" id="custom_btn" type="submit">{% trans 'Confirm' %}</button>
+</form>
+
+{% else %}
+
+{% url 'account_email' as email_url %}
+
+<p class="text-center">{% blocktrans %}این درخواست تایید حساب ایمیل منقضی شده است لطفا یک<a href="{{ email_url }}"> درخواست تایید ایمیل جدید </a>بدهید.{% endblocktrans %}</p>
+
+{% endif %}
+</div>
+{% endblock content %}

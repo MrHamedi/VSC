@@ -10,3 +10,10 @@ def get_secret(data):
         return data
     except KeyError:
         raise ImproperlyConfigured(f'Please insert {data} value into environment!!!')
+
+
+def upload_to_username(instance ,filename):
+    return(f"{instance.sharer.user.username}/{instance.subject}")
+
+
+

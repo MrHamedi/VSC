@@ -6,11 +6,11 @@ __pycache__/
 !/env/.gitkeep
 
 #medias and statics
-/media/
-!/media/.gitkeep
+media/
+!media/.gitkeep
 
-/static_root/
-!/static_root/.gitkeep
+static_root/
+!static_root/.gitkeep
 
 #secrets
 .bash_profile
