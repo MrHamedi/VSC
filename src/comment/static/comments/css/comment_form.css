@@ -1,0 +1,9 @@
+#video_comment_textarea{
+    background-color:#dddddd ;
+    resize: none;
+
+}
+
+#video_comment_textarea:focus{
+    background-color:#ffffff;
+}
