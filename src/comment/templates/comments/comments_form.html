@@ -1,8 +1,26 @@
+{% load static %}
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'comments/css/comment_form.css' %}">
+</head>
+
+<body>
 <div>
+    {% if messages %}
+        {% for message in messages %}
+            {% if  message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                <p class="bg-light text-danger">{{message}}</p>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
     <p>
         نظرت راجع به این فیلم چیه؟
     </p>
-    <form action="." method="POST">
-        <textarea></textarea>
+    <form action="{% url 'comments:comment_creation' video.id %}" method="POST" class="form-group" >
+        <textarea id="video_comment_textarea" class="form-control "  resize="none" name="content" placeholder="چی فکر می کنی؟" ></textarea>
+        {% csrf_token %}
+        <input type="submit" value="ثبت" class="btn btn-warning rounded p-1 mt-1" >
     </form>
 </div>
+</body>
+</html>
