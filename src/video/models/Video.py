@@ -2,8 +2,11 @@ from django.db import models
 from accounts.models.profile import Profile
 from core.models import CommonPostableFields
 from core.utils import upload_to_username
-from video.utils.video_splitter import video_splitter
+from ..utils.set_image import set_image
+from ..utils import is_format_valid
 from django.urls import reverse
+import os
+from taggit.managers import TaggableManager
 
 
 class Video(CommonPostableFields):
@@ -13,6 +16,7 @@ class Video(CommonPostableFields):
     subject=models.CharField(max_length=150)
     description=models.TextField(null=True,blank=True)
     image=models.ImageField(upload_to=upload_to_username ,null=True ,blank=True)
+    tags=TaggableManager()
 
     class Meta:
         verbose_name="فیلم"
@@ -27,7 +31,12 @@ class Video(CommonPostableFields):
             'video:video_detail',args=[self.sharer.user.username,self.subject,self.id]
         ))
 
+    @property
+    def extension_splitter(self):
+        return os.path.splitext(self.video.path)[1]
+
     def save(self,*args,**kwargs):
+        print(self.video)
+        is_format_valid(self.video.path)
         super(Video,self).save(*args,**kwargs)
-        if not self.image:
-            video_splitter(self)
+        set_image(self)

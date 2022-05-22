@@ -1,7 +1,6 @@
 import os 
 from django.core.exceptions import ImproperlyConfigured
 
-
 def get_secret(data):
     """
         Will read secret data from environment
@@ -13,5 +12,8 @@ def get_secret(data):
         raise ImproperlyConfigured(f'Please insert {data} value into environment!!!')
 
 
-def upload_to_username(instance,filename):
-    return(f"{instance.sharer.user.username}/{instance.subject}/")
+def upload_to_username(instance ,filename):
+    return(f"{instance.sharer.user.username}/{instance.subject}")
+
+
+

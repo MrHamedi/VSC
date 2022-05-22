@@ -9,8 +9,8 @@ __pycache__/
 media/
 !media/.gitkeep
 
-/static_root/
-!/static_root/.gitkeep
+static_root/
+!static_root/.gitkeep
 
 #secrets
 .bash_profile

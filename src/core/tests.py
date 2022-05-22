@@ -1,10 +1,7 @@
-from cProfile import Profile
-from difflib import restore
 from django.test import TestCase
 from django.urls import reverse 
 from video.models import Video 
 from django.contrib.auth.models import User 
-from accounts.models import Profile
 from django.core.files import File as DjangoFile
 import os
 

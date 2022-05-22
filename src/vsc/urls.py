@@ -24,9 +24,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("accounts/",include('allauth.urls')),
     path("video/",include("video.urls",namespace="video")),
+    path("accounts/",include("accounts.urls",namespace="accounts")),
     path("",include("core.urls",namespace="core")),
 ]
 
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL,
-    document_root=settings.MEDIA_ROOT)
+    urlpatterns+=[path('__debug__/', include('debug_toolbar.urls'))]
+    urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

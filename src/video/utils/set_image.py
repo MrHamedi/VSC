@@ -6,7 +6,9 @@ import imutils
 # Playing video from file:
 
 
-def video_splitter(video):  
+def set_image(video):  
+    if video.image:
+        return
     username=video.sharer.user.username
     subject=video.subject
     cap = cv2.VideoCapture(video.video.path)
