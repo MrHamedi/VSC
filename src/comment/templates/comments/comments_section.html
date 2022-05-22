@@ -1,11 +1,14 @@
-<div>
+{% load jalali_tags %}
+<html dir="rtl" lang="fa">
+<body>
+  <div>
   <em class="mt-5">دیدگاه ها</em>
   <div>
     {% if comments %}
     {% for comment in comments%}
     <section class="mt-2">
       <img src="{{comment.sharer.get_image}}" class="rounded" width="40">
-      <p>{{comment.sharer}}</p>
+      <span> {{comment.sharer}}</span> - <span class="d-inline-block">{{video.create_date|to_jalali:"%Y/%m/%d"}} </span>
       <p class="border-bottom border-warning mt-2 border-2 ">{{comment}}</p>
     </section>
     {% endfor %}
@@ -14,3 +17,5 @@
     {% endif %}
   </div>
 </div>
+</body>
+</html>
