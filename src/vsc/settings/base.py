@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.openid',
     'taggit',
+    "jalali_date",
 ]
 
 MIDDLEWARE = [
@@ -152,5 +153,4 @@ ACCOUNT_EMAIL_REQUIRED=True
 ACCOUNT_EMAIL_VERIFICATION='mandatory'
 
 
-LOGIN_REDIRECT_URL = "core:homepage"
 

@@ -25,6 +25,7 @@ urlpatterns = [
     path("accounts/",include('allauth.urls')),
     path("video/",include("video.urls",namespace="video")),
     path("accounts/",include("accounts.urls",namespace="accounts")),
+    path("comments/",include("comment.urls",namespace="comments")),
     path("",include("core.urls",namespace="core")),
 ]
 
