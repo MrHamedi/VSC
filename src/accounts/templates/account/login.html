@@ -29,6 +29,7 @@
             {% endfor %}
                 
             </div>
+            <input  type="hidden" name="next" value="{{ request.GET.next }}" />
             <button type="submit" class="btn  d-flex mx-auto mb-2" id="custom_btn">ورود</button>
         </form>
         <p>رمز خود را فراموش کرده اید؟<a href="{% url 'account_reset_password' %}">بازیابی</a></p>
