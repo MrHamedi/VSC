@@ -1,0 +1,41 @@
+#show_options_btn{
+    background-color:#e68a00;
+    color: white;
+}
+
+#options{
+    display: none;
+    position: fixed;
+    left:50%;
+    top:45%;
+    transform: translateX(-50%);
+    background-color: #ff9900;
+    padding:2%;
+    border-radius:2%;
+}
+
+#change_password_btn , #edit_profile_btn{
+    /*background-color: #cc7a00;*/
+    background-color:white;
+    color: black;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+}
+
+#options_close_btn{
+    background-color: #ff1a1a;
+    color: white;
+    margin-right:0;
+    margin-bottom:10px;
+}
+
+#options > button:hover{
+    opacity:0.8;
+}
+
+#options:focus{
+    background-color: red;
+}
