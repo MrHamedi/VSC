@@ -9,7 +9,7 @@
     {% if messages %}
         {% for message in messages %}
             {% if  message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
-                <p class="bg-light text-danger">{{message}}</p>
+                <p class="bg-light text-danger rounded">{{message}}</p>
             {% endif %}
         {% endfor %}
     {% endif %}
