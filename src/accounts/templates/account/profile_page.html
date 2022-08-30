@@ -1,8 +1,8 @@
 {% extends "core/base.html" %}
 {% load static %}
 {% block head %}
-<script src="{% static 'account/js/profile.js' %}" defer></script>
-<link rel="stylesheet" href="{% static 'account/css/profile.css' %}">
+    <script src="{% static 'account/js/profile.js' %}" defer></script>
+    <link rel="stylesheet" href="{% static 'account/css/profile.css' %}">
 {% endblock head %}
 {% block content %}
 <!--
@@ -31,14 +31,14 @@
             {% for video in videos %}
             <div class="col-xs-8 col-sm-6 col-md-4 col-lg-3  mt-3">
                 <a href="{{video.get_absolute_url}}" class="text-dark text-decoration-none">
-                    <img src="/media/{{video.image}}" class="img-fluid">
+                    <img src="/media/{{video.image}}" class="img-fluid videos_image">
                     <p class="text-center">{{video.subject}}</p>
                 </a>
             </div>
             {% endfor %}
         </div>
     </div>
-    <div id="options" class="">
+    <div id="options" >
         <button type="button" id="options_close_btn" class="btn text-white">&times;</button>
         <button type="button" id="edit_profile_btn" class="btn">تغییر اطلاعات پروفایل</button>
         <a href="{% url 'account_change_password' %}"><button type="button" id="change_password_btn" class="btn">تغییر
