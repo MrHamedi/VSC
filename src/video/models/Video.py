@@ -28,7 +28,7 @@ class Video(CommonPostableFields):
     
     def get_absolute_url(self):
         return(reverse(
-            'video:video_detail',args=[self.sharer.user.username,self.subject,self.id]
+            'video:video_detail',args=[self.sharer.user.username,self.create_date.year,self.create_date.month,self.create_date.day,self.id]
         ))
 
     @property
