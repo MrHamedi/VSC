@@ -1,13 +1,17 @@
 {% extends "core/base.html" %}
+{% load static %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'core/css/homepage.css' %}">
+{% endblock head %}
 {% block page_title %}
 homepage
 {% endblock page_title %}
 {% block content %}
-<div class="container mt-2  m-auto row ">
+<div class="container mt-2 row m-auto text-center">
     {% for video in videos %}
     <div class="col-xs-8 col-sm-6 col-md-4 col-lg-3">
-        <a href="{{video.get_absolute_url}}" class="text-dark text-decoration-none">
-            <img src="media/{{video.image}}" class="img-fluid">
+        <a href="{{video.get_absolute_url}}" class="text-dark text-decoration-none ">
+            <img src="media/{{video.image}}" class="videos_image img-fluid " >
             <p class="text-center">{{video.subject}}</p>
         </a>
     </div>
