@@ -1,11 +1,15 @@
-<div class='pagination justify-content-center mt-auto'>
-  {% if page_obj.has_next %}
-  <a href='{% url "core:homepage" %}?page={{ page_obj.next_page_number }}'> صفحه بعد</a>
-  {% endif %}
-  <span class='mx-4'>
-    صفحه {{ page_obj.number }} از {{ page_obj.paginator.num_pages }}
-  </span>
-  {% if page_obj.has_previous %}
-  <a href='{% url "core:homepage" %}?page={{ page_obj.previous_page_number }}'>صفحه قبل </a>
-  {% endif %}
-</div>
+<nav aria-label="Page navigation pagination mt-auto ">
+  <ul class="pagination  justify-content-center ">
+    {% if page_obj.has_next %}
+    <li class="page-item"><a class="page-link" href='{% url "core:homepage" %}?page={{ page_obj.next_page_number }}'>صفحه بعد</a></li>
+    {% else %}
+    <li class="page-item disabled"><a class="page-link " href=''>صفحه بعد</a></li>
+    {% endif %}
+    <li class="page-item disabled" ><a class="page-link" href=''>صفحه {{ page_obj.number }} </a></li>
+    {% if page_obj.has_previous %}
+    <li class="page-item"><a class="page-link" href='{% url "core:homepage" %}?page={{ page_obj.previous_page_number }}'>صفحه قبل</a></li>
+    {% else %}
+    <li class="page-item disabled"><a class="page-link" href=''>صفحه قبل</a></li>
+    {% endif %}
+  </ul>
+</nav>
