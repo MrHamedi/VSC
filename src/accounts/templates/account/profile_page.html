@@ -40,7 +40,7 @@
     </div>
     <div id="options" class="">
             <button type="button" id="options_close_btn" class="btn text-white">&times;</button>
-            <button type="button" id="edit_profile_btn" class="btn" >تغییر اطلاعات  پروفایل</button>
+            <a href="{% url 'accounts:profile_editor' %}"><button type="button" id="edit_profile_btn" class="btn" >تغییر اطلاعات  پروفایل</button></a>
             <a href="{% url 'account_change_password' %}"><button type="button" id="change_password_btn" class="btn">تغییر گذرواژه ورود</button></a>
     </div>
 </div>  
