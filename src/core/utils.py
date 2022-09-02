@@ -13,7 +13,9 @@ def get_secret(data):
 
 
 def upload_to_username(instance ,filename):
+    extension=os.path.splitext(instance.video.path)[1]
+    return(f"{instance.sharer.user.username}/{instance.subject}.{extension}")
+
+
+def upload_image_to_username(instance ,filename):
     return(f"{instance.sharer.user.username}/{instance.subject}")
-
-
-

@@ -8,3 +8,5 @@ class HomePage(ListView):
     model=Video 
     template_name="core/homepage.html"
     context_object_name="videos"
+    paginate_by = 16
+    
