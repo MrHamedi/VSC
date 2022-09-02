@@ -40,7 +40,7 @@ msgstr "حساب‌ها"
 
 #: account/forms.py:59 account/forms.py:415
 msgid "You must type the same password each time."
-msgstr "هربار باید گذرواژه‌ی یکسانی وارد کنی."
+msgstr "هربار باید گذرواژه‌ی یکسانی وارد کنید."
 
 #: account/forms.py:92 account/forms.py:381 account/forms.py:500
 msgid "Password"

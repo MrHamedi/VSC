@@ -1,5 +1,7 @@
 {% extends 'core/base.html' %}
 {% load static %}
+{% load widget_tweaks %}
+
 {% block page_title %}
 ثبت نام
 {% endblock page_title %}
@@ -9,7 +11,7 @@
 {% block content %}
 <div class="container h-100">
     <section class="d-flex align-items-center justify-content-center text-right" id="signup_div">
-        <form method="POST" action="." id="signup_form">
+        <form method="POST" action="." class="form-group" id="signup_form">
             <div class="form-group">
                 <strong class="d-block d-flex border-bottom border-warning">ثبت نام</strong>
                 <span class="d-block  text-right">برای ثبت نام لطفا فرم زیر را پر کنید.</span>
@@ -21,7 +23,7 @@
                     {% for field in form %}
                     <div class="row d-block pb-2 pr-2">
                         <span class="d-block text-center">{{field.label}}</span>
-                        {{field}}
+                        {{field|add_class:"form-control"}}
                     </div>
                     {% endfor %}
                     <em> حساب کاربری داری؟<a href="{% url 'account_login' %}">ورود</a> </em>
