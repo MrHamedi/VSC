@@ -9,3 +9,21 @@
     color:white;
     padding:5%;
 }
+
+@media  (min-width: 200px) and (max-width: 599px){
+    #logout_form{
+        width:200px;
+    }
+
+  }
+
+@media  (min-width: 600px){
+    #logout_form p{
+        font-size:2em;
+    }
+
+    #logout_form{
+        width:50%;
+    }
+
+}
