@@ -39,3 +39,9 @@
 #options:focus{
     background-color: red;
 }
+
+.videos_image{
+    object-fit:fill ;
+    width: 230px;
+    height:250px
+}

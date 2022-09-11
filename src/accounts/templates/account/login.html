@@ -2,36 +2,46 @@
 {% load static %}
 {% load i18n %}
 {% block head %}
-    <link rel="stylesheet" href="{% static 'account/css/login.css' %}">
-    <link rel="stylesheet" href="{% static 'account/css/shared.css' %}">
-
+<link rel="stylesheet" href="{% static 'account/css/login.css' %}">
 {% endblock head %}
 {% block page_title %}
-    {% trans 'ورود' %}
+{% trans 'ورود' %}
 {% endblock page_title %}
 {% block content %}
-   
-    <div class="container mt-3 text-center pt-3" id="login_div">
-        <strong class="d-block  border-bottom border-warning text-right">ورود</strong>
-        
-        <p class="text-right">اگر هنوز ثبت نام نکرده اید. لطفا ابتدا <a href="{% url 'account_signup' %}">ثبت نام </a>کنید.</p>    
-        <form action="." method="POST"> 
-            {% csrf_token %}
-            {% for key, value in form.errors.items %}
-                <span class="text-danger">{{ value }}</span>
-            {% endfor %}     
-            <div class="grid">
-            {% for field in form %}
-            <div class="row d-flex d-block pb-2 pr-2">
-                    {{field.label}}<br>
-                    {{field}}
+<div class="container h-100">
+    <section class="d-flex align-items-center justify-content-center text-right" id="login_div">
+        <form method="POST" action="{% url 'account_login' %}" id="login_form">
+            <div class="form-group">
+                <strong class="d-block  border-bottom border-warning text-right">ورود</strong>
+                <p class="text-right">اگر هنوز ثبت نام نکرده اید. لطفا ابتدا <a href="{% url 'account_signup' %}">ثبت
+                        نام </a>کنید.</p>
+                {% csrf_token %}
+                <label for="username">نام کاربری</label>
+                <input class="form-control" required type="username" name="login" id="username">
+                <section class="text-danger bg-light rounded">
+                    <p>{{form.errors.login}}</p>
+                </section>
+                <label for="password">گذرواژه</label>
+                <input class="form-control" required type="password" id="password" name="password">
+                <section class="text-danger bg-light rounded">
+                    <p>{{form.errors.password}}</p>
+                </section>
+                {% for field, errors in form.errors.items %}
+                {% for error in errors %}
+                <section class="text-danger text-center bg-light p-1 rounded mb-2 ">
+                    <span>{{ error }}</span>
+                </section>
+                {% endfor %}
+                {% endfor %}
+                <button type="submit"  class="btn bg-white">ورود</button>
+                <section class="d-inline-block m-1">
+                    <a class="mt-1  text-white " href="{% url 'account_reset_password' %}">گذرواژه خود را فراموش کرده
+                        اید؟ </a>
             </div>
-            {% endfor %}
-                
-            </div>
-            <input  type="hidden" name="next" value="{{ request.GET.next }}" />
-            <button type="submit" class="btn  d-flex mx-auto mb-2" id="custom_btn">ورود</button>
         </form>
-        <p>رمز خود را فراموش کرده اید؟<a href="{% url 'account_reset_password' %}">بازیابی</a></p>
-    </div>
+    </section>
+
+    </section>
+
+</div>
 {% endblock content %}

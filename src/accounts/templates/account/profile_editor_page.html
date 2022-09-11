@@ -1,0 +1,27 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% block page_title %}
+ویرایش حساب کاربری
+{% endblock page_title %}
+{% block head %}
+    <link href="{% static 'account/css/profile_editor.css' %}" rel="stylesheet">
+    <script src="{% static 'account/js/profile_editor.js' %}" defer></script>
+{% endblock head %}
+{% block content %}
+<div class="container h-100">
+    <section class="d-flex align-items-center justify-content-center  text-right">
+        <form action="." enctype="multipart/form-data" method="POST"  class="form-group text-light" id="profile_editor_form">
+            <section class="text-center d-block">
+            <label for="image">
+            <button type="button"  id="image_droper" class="btn btn-light btn-sm float-right"><span aria-hidden="true" class="text-danger">&times;</span></button>
+            <img  src="{{user.profile.get_image}}" id="profile_image" width="100" class="d-block border border-warning rounded-circle"></label></section>
+            <input id="image"  name="image" type="file" >
+            <label for="username">نام کاربری</label>
+            <input type="text" class="form-control" id="username" required name="username" value="{{user.username}}">
+            <p>{{form.errors.username}}</p>
+            <button  type="submit" class="btn btn-light d-flex mx-auto mb-1 mt-2">ویرایش</button>
+            {% csrf_token %}
+        </form>
+    </section>
+</div>
+{% endblock content %}

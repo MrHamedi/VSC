@@ -11,6 +11,6 @@ from django.utils.text import slugify
 def slug_maker(sender,instance,created,**kwargs):
     if not created:
         return      
-    slug=slugify(f"{instance.sharer.user.username} {instance.subject} {instance.id}")
+    slug=slugify(f"{instance.sharer.user.username} {instance.create_date.year} {instance.create_date.month} {instance.create_date.day} {instance.id}")
     instance.slug=slug
     instance.save()

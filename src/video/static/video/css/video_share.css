@@ -1,0 +1,23 @@
+#video_share_form{
+    background-color:#e68a00;
+    padding:3%;
+    border-radius: 10%;
+}
+
+#video_share_form {
+    color: white;
+}
+
+#video_share_form a{
+    color:#0a6f8c;
+}
+
+.bootstrap-tagsinput .tag {
+    background: #cc7a00;
+    padding: 4px;
+    font-size: 14px;
+}
+
+.bootstrap-tagsinput {
+    width: 100% !important;
+}

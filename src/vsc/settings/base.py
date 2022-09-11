@@ -11,7 +11,10 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+from wsgiref.handlers import read_environ
 from django.utils.translation import gettext_lazy as _
+from django.shortcuts import redirect
+from django.urls import reverse_lazy
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -53,6 +56,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.openid',
     'taggit',
     "jalali_date",
+    "widget_tweaks"
 ]
 
 MIDDLEWARE = [
@@ -137,6 +141,10 @@ MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 MEDIA_URL="/media/"
 
 LOCALE_PATHS = [os.path.join(BASE_DIR,'locale')]
+
+
+#auth settings 
+LOGIN_URL = reverse_lazy('account:account_login')
 
 
 #Translations settings

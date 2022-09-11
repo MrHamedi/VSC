@@ -43,9 +43,10 @@
               </ul>
             </div>
           </nav>
-
-          {% block content %}
-          {% endblock content %}
-        {% include 'core/footer.html' %}
+          <section class="pt-1 pb-1">
+            {% block content %}
+            {% endblock content %}
+          </section>
+          {% include 'core/footer.html' %}
     </body>
 </html>

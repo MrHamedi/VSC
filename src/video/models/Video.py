@@ -1,9 +1,9 @@
 from django.db import models
 from accounts.models.profile import Profile
 from core.models import CommonPostableFields
-from core.utils import upload_to_username
+from core.utils import upload_to_username ,upload_image_to_username
 from ..utils.set_image import set_image
-from ..utils import is_format_valid
+from ..validators import video_validator
 from django.urls import reverse
 import os
 from taggit.managers import TaggableManager
@@ -11,11 +11,11 @@ from taggit.managers import TaggableManager
 
 class Video(CommonPostableFields):
 
-    video=models.FileField(upload_to=upload_to_username)
-    slug=models.SlugField(unique=True ,max_length=300,blank=True)
+    video=models.FileField(upload_to=upload_to_username ,validators=[video_validator])
+    slug=models.SlugField(unique=True ,max_length=300,blank=True ,null=True)
     subject=models.CharField(max_length=150)
     description=models.TextField(null=True,blank=True)
-    image=models.ImageField(upload_to=upload_to_username ,null=True ,blank=True)
+    image=models.ImageField(upload_to=upload_image_to_username ,null=True ,blank=True)
     tags=TaggableManager()
 
     class Meta:
@@ -28,7 +28,7 @@ class Video(CommonPostableFields):
     
     def get_absolute_url(self):
         return(reverse(
-            'video:video_detail',args=[self.sharer.user.username,self.subject,self.id]
+            'video:video_detail',args=[self.sharer.user.username,self.create_date.year,self.create_date.month,self.create_date.day,self.id]
         ))
 
     @property
@@ -36,7 +36,5 @@ class Video(CommonPostableFields):
         return os.path.splitext(self.video.path)[1]
 
     def save(self,*args,**kwargs):
-        print(self.video)
-        is_format_valid(self.video.path)
         super(Video,self).save(*args,**kwargs)
         set_image(self)

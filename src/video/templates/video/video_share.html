@@ -1,0 +1,39 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'video/css/video_share.css' %}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha512-MoRNloxbStBcD8z3M/2BmnT+rg4IsMxPkXaGh2zD6LGNNFE80W3onsAhRcMAMrSoyWL9xD7Ert0men7vR8LUZg==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.css" integrity="sha512-xmGTNt20S0t62wHLmQec2DauG9T+owP9e6VU8GigI0anN7OXLip9i7IwEhelasml2osdxX71XcYm6BQunTQeQg==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.min.js" integrity="sha512-9UR1ynHntZdqHnwXKTaOm1s6V9fExqejKvg5XMawEMToW4sSw+3jtLrYfZPijvnwnnE8Uol1O9BcAskoxgec+g==" crossorigin="anonymous"></script>
+
+    <script src="{% static 'video/js/video_share.js' %}" defer></script>
+{% endblock head %}
+{% block page_title %}
+اشتراک گذاری
+{% endblock page_title %}
+{% block content %}
+<div class="container h-100">
+    <section class="d-flex align-items-center justify-content-center text-right">
+        <form action="." method="POST" enctype="multipart/form-data" id="video_share_form">
+            <div class="form-group">
+                <strong class="d-block d-flex border-bottom border-warning"> به اشتراک گذاری فیلم</strong>
+                <label>متن پیش نمایش</label>
+                <input name="subject" class="form-control">
+                <label>عکس پیش نمایش</label>
+                <input type="file" name="image" class="form-control-file" accept="image/*">
+                {{form.errors.video}}
+                <label>فیلم</label>
+                <input type="file" class="form-control-file" class=" file_multi_video" name="video" accept="video/*" />
+                <label>درباره فیلم</label>
+                <textarea class="form-control"  name="description"></textarea>
+                <label class="d-block">تگ ها</label>
+                <input name="tags"  class="form-control"  id="tags-input">
+                {% csrf_token %}
+                <button  class="btn btn-light d-flex mx-auto  mt-1" type="submit">ارسال</button>
+            </div>
+        </form>
+    </section>
+</div>
+{% endblock content %}
