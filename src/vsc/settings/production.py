@@ -11,12 +11,13 @@ DATABASES = {
         'USER': get_secret("DB_USER"),
         "PASSWORD": get_secret("DB_PASSWORD"),
         'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'PORT': '3306',
     }
 }
 
 USE_TZ = False
 TIME_ZONE = 'Asia/Tehran'
+
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
