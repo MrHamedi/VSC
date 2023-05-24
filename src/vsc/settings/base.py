@@ -144,7 +144,7 @@ LOCALE_PATHS = [os.path.join(BASE_DIR,'locale')]
 
 
 #auth settings 
-LOGIN_URL = reverse_lazy('account:account_login')
+LOGIN_URL = reverse_lazy('account_login')
 
 
 #Translations settings
@@ -159,6 +159,6 @@ LANGUAGES = (
 SITE_ID=1
 ACCOUNT_EMAIL_REQUIRED=True
 ACCOUNT_EMAIL_VERIFICATION='mandatory'
-
+ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = "accounts"
 
 
