@@ -16,7 +16,9 @@
     <section class="col-md-8 col-12 ">
       <div class="embed-responsive embed-responsive-16by9 m-auto mr-auto ">
         <video id="my-video" class="video-js  embed-responsive-item " controls preload="auto"
-          poster="{{video.image.url}}" data-setup="{}">
+          {% if video.image %}
+            poster="{{video.image.url}}" data-setup="{}">
+          {% endif %}
           <source src="{{video.video.url}}" type="video/mp4" />
           <source src="{{video.video.url}}" type="video/webm" />
           <p class="vjs-no-js">
