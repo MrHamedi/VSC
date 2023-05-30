@@ -1,3 +1,13 @@
-<section class="bg-white d-none d-md-inline-block col-md-3  float-left border border-warning mb-1">
-    پیشنهادی
+{% load static %}
+<section class="bg-white d-none d-md-inline-block col-md-3  float-left mb-1">
+    {% for video in similar_videos %}
+    <a href="{{video.get_absolute_url}}" class="text-dark text-decoration-none">
+        {% if video.image %}
+            <img src="/media/{{video.image}}" class="videos_image img-fluid " >
+        {% else %}
+            <img src="{% static 'core/images/play.png' %}" class="videos_image img-fluid ">
+        {% endif %}
+        {{video.subject}}
+    {% endfor %}
+    </a>
 </section>
