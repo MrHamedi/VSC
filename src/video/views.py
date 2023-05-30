@@ -5,6 +5,7 @@ from comment.models import Comment
 from .forms import VideoShareForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
+from django.db.models import Count
 
 
 class VideoDetail(DetailView):
@@ -15,6 +16,12 @@ class VideoDetail(DetailView):
     def get_context_data(self,**kwargs):
         context=super().get_context_data(**kwargs)
         context["comments"] = Comment.objects.filter(video=self.object)
+        video_tags_ids=Video.tags.values_list('id',flat=True)
+        similar_videos=Video.objects.filter(tags__in=video_tags_ids). \
+        exclude(id=self.object.id)
+        similar_videos=similar_videos.annotate(same_tags=Count('tags'))\
+        .order_by('-same_tags','create_date')[:4]
+        context["similar_videos"]=similar_videos
         return context 
 
 
