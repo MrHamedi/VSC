@@ -4,6 +4,8 @@ from .base import *
 SECRET_KEY = get_secret("SECRET_KEY")
 DEBUG = False
 
+ALLOWED_HOSTS = ['vsc.pythonanywhere.com']
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
